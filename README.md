@@ -1,23 +1,18 @@
-# Django_Multiple_User_Type
+# Django Multiple User Type
 
 
 
-# Decorator
-```javascript
-
+## Decorator
+```python
 fucntion based Views : @customer_required @login_required
 class based views    : @method_decorator([login_required, customer_required], name='dispatch')
-
-
 ```
 
 
 ## Run
 
-'''javascript
-
+```python
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
-
-'''
+```
