@@ -4,6 +4,10 @@ from django.views.generic import CreateView
 from accounts.models import User
 from accounts.form import CustomerSignUpForm,SellerSignUpForm
 from django.shortcuts import render
+from accounts.decorators import customer_required,seller_required
+from django.contrib.auth.decorators import login_required
+
+
 
 class CustomerSignUpView(CreateView):
     model = User
@@ -35,13 +39,14 @@ class SellerSignUpView(CreateView):
         return redirect('sellerp')
 
 
-
-
-
-
-
+@login_required
+@customer_required
 def customerV(req):
     return render(req,'accounts/customer/index.html')
 
+
+@login_required
+@seller_required
 def sellerV(req):
     return render(req,'accounts/seller/index.html')
+
